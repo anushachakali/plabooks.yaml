@@ -1,0 +1,24 @@
+---
+- hosts: all
+  gather_facts: false
+  become: true
+  vars:
+   companyName: MSS
+   location: karnataka
+  tasks:
+   - name: Install Apache HTTP Server
+     yum:
+      name: httpd
+      state: latest
+   - name: copy index.html
+     copy:
+      src: index.html
+      dest: /var/www/html/index.html
+     notify:
+      - ReStart the Apache HTTP Server
+  handlers:     
+   - name: ReStart the Apache HTTP Server
+     service:
+      name: httpd
+      state: restarted
+...
