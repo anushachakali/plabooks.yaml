@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+   companyName: MT
+   location: Bnaglore
+  tasks:
+   - name: Disply the values 
+     debug:
+      msg: "the companyName is: {{companyName}}"
+...
