@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+   - name: Install git
+     yum:
+      name: git
+      state: latest
+   - name: Install vim
+     yum:
+      name: vim
+      state: present
+   - name: Install zip
+     yum:
+      name: zip
+      state: latest
+...
