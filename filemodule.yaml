@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  tasks:
+   - name: Create a empty file
+     file:
+      path: /tmp/devops.txt
+      owner: ansible
+      group: ansible
+      mode: 0700 
+      state: touch
+...
